@@ -9,10 +9,16 @@ func main() {
 	//
 	//fmt.Println(card)
 
-	cards := deck{"Ace of Diamonds", newCard()}
-	cards = append(cards, "Six of Spades")
+	//cards := deck{"Ace of Diamonds", newCard()}
+	//cards = append(cards, "Six of Spades")
 
-	cards.print()
+	cards := newDeck()
+
+	//cards.print()
+
+	hand, remainingCards := deal(cards, 5)
+	hand.print()
+	remainingCards.print()
 
 }
 
