@@ -37,7 +37,7 @@ func main() {
 	//cards.print()
 
 	cards := newDeck()
-	cards.shuffle()
+	cards.shuffleq()
 	cards.print()
 
 }

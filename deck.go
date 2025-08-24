@@ -5,6 +5,7 @@ import (
 	"math/rand"
 	"os"
 	"strings"
+	"time"
 )
 
 // Create a new type of decl
@@ -56,10 +57,33 @@ func newDeckFrom(fileName string) deck {
 	return deck(s)
 }
 
-func (d deck) shuffle() {
+func (d deck) shuffleq() {
+
+	source := rand.NewSource(time.Now().UnixNano())
+	r := rand.New(source)
+
 	for i := range d {
-		newPosition := rand.Intn(len(d) - 1)
+		newPosition := r.Intn(len(d)-1) + 1
 
 		d[i], d[newPosition] = d[newPosition], d[i]
 	}
+
 }
+
+func init() {
+	rand.Seed(time.Now().UnixNano())
+}
+
+func (d deck) shuffle() {
+	rand.Shuffle(len(d), func(i, j int) {
+		d[i], d[j] = d[j], d[i]
+	})
+}
+
+//func (d deck) shuffle() {
+//	r := rand.New(rand.NewSource(time.Now().UnixNano()))
+//	rand.Shuffle(len(d), func(i, j int) {
+//		d[i], d[j] = d[j], d[i]
+//	})
+//	_ = r // keep r if you want deterministic seeding elsewhere
+//}
