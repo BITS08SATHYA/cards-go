@@ -31,7 +31,13 @@ func main() {
 	//}
 
 	// read from file
-	cards := newDeckFrom("deck.txt")
+	//cards := newDeckFrom("deck.txt")
+	//cards.print()
+	//cards.shuffle()
+	//cards.print()
+
+	cards := newDeck()
+	cards.shuffle()
 	cards.print()
 
 }
