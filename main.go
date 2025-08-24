@@ -23,12 +23,16 @@ func main() {
 	//greeting := "Hi there!"
 	//fmt.Println([]byte(greeting))
 
-	cards := newDeck()
+	//cards := newDeck()
 	//fmt.Println(cards.toString())
-	err := cards.saveToFile("deck.txt")
-	if err != nil {
-		return
-	}
+	//err := cards.saveToFile("deck.txt")
+	//if err != nil {
+	//	return
+	//}
+
+	// read from file
+	cards := newDeckFrom("deck.txt")
+	cards.print()
 
 }
 
